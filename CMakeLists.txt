@@ -27,6 +27,9 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     "-Werror"
   )
   endif()
+add_compile_options(  
+  "-Wno-error=unused-command-line-argument"
+  )
 endif()
 
 if (MSVC)
