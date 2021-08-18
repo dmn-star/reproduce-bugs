@@ -13,8 +13,8 @@ env:
 
 jobs:
   build:
-    name: Clang 12 x86 64 Debug
-    runs-on: ubuntu-latest
+    name: Clang_cl
+    runs-on: windows-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -28,5 +28,5 @@ jobs:
         run: python -m pip install --upgrade pip conan
 
       - name: Build
-        shell: bash
-        run: ./build.sh
+        shell: pwsh
+        run: .\build.bat
