@@ -15,6 +15,8 @@ if  (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     "-Wall"
     "-Werror"
   )
+endif()
+  
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
   if (CMAKE_CXX_COMPILER_FRONTEND_VARIANT STREQUAL "MSVC")
     # using clang with clang-cl front end
