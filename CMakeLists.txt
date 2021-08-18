@@ -9,12 +9,22 @@ set(CXX_EXTENSIONS OFF)
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
-if ((CMAKE_CXX_COMPILER_ID STREQUAL "Clang") OR (CMAKE_CXX_COMPILER_ID STREQUAL "GNU"))
+if  (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
   add_compile_options(
     "-Wextra"
     "-Wall"
     "-Werror"
   )
+if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+  if (CMAKE_CXX_COMPILER_FRONTEND_VARIANT STREQUAL "MSVC")
+    # using clang with clang-cl front end
+  elseif (CMAKE_CXX_COMPILER_FRONTEND_VARIANT STREQUAL "GNU")
+      add_compile_options(
+    "-Wextra"
+    "-Wall"
+    "-Werror"
+  )
+  endif()
 endif()
 
 if (MSVC)
